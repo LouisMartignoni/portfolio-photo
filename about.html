@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Louis Martignoni Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">Louis Martignoni</a>
+
+        <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Portfolio</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <section class="about">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="images/profile-pic.jpg" alt="Louis Martignoni" class="profile-pic">
+                </div>
+                <div class="about-content">
+                    <h1 class="about-title">About</h1>
+                    <p class="about-text">
+                        I'm Louis, a photographer just starting my journey into the world of photography.
+                        Based in Paris, I'm passionate about capturing moments and exploring the art of visual storytelling.
+                    </p>
+                    <p class="about-text">
+                        Currently learning and experimenting with different styles, always looking for new perspectives.
+                    </p>
+                    <div class="about-contact">
+                        <a href="https://www.instagram.com/loumrtg/" target="_blank" rel="noopener">@loumrtg</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright">&copy; 2024 Louis Martignoni. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/loumrtg/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+                <a href="mailto:martignonilouis@gmail.com" aria-label="Email">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        nav.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    nav.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

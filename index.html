@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Martignoni | Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="/" class="logo">Louis Martignoni</a>
+
+        <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link active">Portfolio</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="mailto:martignonilouis@gmail.com" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Gallery -->
+    <main class="main">
+        <section class="gallery" id="gallery-container">
+            <!-- Sections will be generated dynamically -->
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Fermer">&times;</button>
+        <button class="lightbox-prev" aria-label="Précédent">&#10094;</button>
+        <button class="lightbox-next" aria-label="Suivant">&#10095;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image">
+        </div>
+        <div class="lightbox-counter">
+            <span class="current">1</span> / <span class="total">12</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright">&copy; 2024 Louis Martignoni. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/loumrtg/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+                <a href="mailto:martignonilouis@gmail.com" aria-label="Email">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
