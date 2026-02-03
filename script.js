@@ -11,31 +11,37 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: 'Thailand-Cambodge',
             title: 'Thailand & Cambodge',
+            location: 'Thailand & Cambodia',
+            year: '2025',
             photos: [
-                { src: 'images/Thailand-Cambodge/IMG_4576.jpg', alt: 'Thailand-Cambodge' },
-                { src: 'images/Thailand-Cambodge/IMG_4881-2.jpg', alt: 'Thailand-Cambodge' },
-                { src: 'images/Thailand-Cambodge/IMG_4933.jpg', alt: 'Thailand-Cambodge' },
-                { src: 'images/Thailand-Cambodge/IMG_4977.jpg', alt: 'Thailand-Cambodge' },
-                { src: 'images/Thailand-Cambodge/IMG_4996.jpg', alt: 'Thailand-Cambodge' },
-                { src: 'images/Thailand-Cambodge/IMG_5008.jpg', alt: 'Thailand-Cambodge' },
-                { src: 'images/Thailand-Cambodge/IMG_5131.jpg', alt: 'Thailand-Cambodge' },
+                { src: 'images/Thailand-Cambodge/IMG_4576.jpg', alt: 'Bangkok street scene' },
+                { src: 'images/Thailand-Cambodge/IMG_4881-2.jpg', alt: 'Cambodia sunset' },
+                { src: 'images/Thailand-Cambodge/IMG_4933.jpg', alt: 'Local architecture' },
+                { src: 'images/Thailand-Cambodge/IMG_4977.jpg', alt: 'Village life' },
+                { src: 'images/Thailand-Cambodge/IMG_4996.jpg', alt: 'River view' },
+                { src: 'images/Thailand-Cambodge/IMG_5008.jpg', alt: 'Evening light' },
+                { src: 'images/Thailand-Cambodge/IMG_5131.jpg', alt: 'Landscape' },
             ]
         },
         {
             name: 'Vanoise',
             title: 'Vanoise',
+            location: 'Vanoise, Alps',
+            year: '2025',
             photos: [
-                { src: 'images/Vanoise/IMG_5576.jpg', alt: 'Vanoise' },
-                { src: 'images/Vanoise/IMG_5678.jpg', alt: 'Vanoise' },
+                { src: 'images/Vanoise/IMG_5576.jpg', alt: 'Mountain wildlife' },
+                { src: 'images/Vanoise/IMG_5678.jpg', alt: 'Alpine landscape' },
             ]
         },
         {
             name: 'Paris',
             title: 'Paris',
+            location: 'Paris',
+            year: '2026',
             photos: [
-                { src: 'images/Paris/IMG_6108.jpg', alt: 'Paris' },
-                { src: 'images/Paris/IMG_6126.jpg', alt: 'Paris' },
-                { src: 'images/Paris/IMG_6130.jpg', alt: 'Paris' },
+                { src: 'images/Paris/IMG_6108.jpg', alt: 'Winter night' },
+                { src: 'images/Paris/IMG_6126.jpg', alt: 'Snow covered bridge' },
+                { src: 'images/Paris/IMG_6130.jpg', alt: 'City lights' },
             ]
         }
     ];
@@ -92,7 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.alt = photo.alt;
                 img.loading = 'lazy';
 
+                // Caption overlay
+                const caption = document.createElement('div');
+                caption.className = 'gallery-caption';
+                caption.innerHTML = `
+                    <span class="caption-line"></span>
+                    <span class="caption-location">${category.location}</span>
+                    <span class="caption-year">${category.year}</span>
+                `;
+
                 item.appendChild(img);
+                item.appendChild(caption);
                 grid.appendChild(item);
                 globalIndex++;
             });
