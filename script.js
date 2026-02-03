@@ -77,11 +77,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const section = document.createElement('div');
             section.className = 'gallery-section';
 
-            // Create title
+            // Create title as link to project page
+            const titleLink = document.createElement('a');
+            titleLink.href = `project-${category.name.toLowerCase()}.html`;
+            titleLink.className = 'gallery-title-link';
+
             const title = document.createElement('h2');
             title.className = 'gallery-title';
             title.textContent = category.title;
-            section.appendChild(title);
+
+            titleLink.appendChild(title);
+            section.appendChild(titleLink);
 
             // Create grid
             const grid = document.createElement('div');
@@ -243,7 +249,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ========================================
+    // Hero scroll button
+    // ========================================
+    const heroScroll = document.querySelector('.hero-scroll');
+    if (heroScroll) {
+        heroScroll.addEventListener('click', () => {
+            document.getElementById('gallery').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // ========================================
+    // Scroll animations (Intersection Observer)
+    // ========================================
+    function initScrollAnimations() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay for items
+                    const delay = entry.target.classList.contains('gallery-item')
+                        ? index * 100
+                        : 0;
+
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all gallery items and titles
+        document.querySelectorAll('.gallery-item, .gallery-title').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    // ========================================
     // Initialisation
     // ========================================
     createGallery();
+    initScrollAnimations();
 });
