@@ -191,8 +191,8 @@ img {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-sm);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
     align-items: start;
 }
 
@@ -422,6 +422,7 @@ img {
 
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
     }
 
     .nav-list {
